@@ -19,7 +19,7 @@ This repository contains a Flask application that utilizes the DeepL translation
 3. Run the Flask application:
 
    ```
-   python app.py
+   python main.py
    ```
 
    The application will start running on `http://localhost:30`.
