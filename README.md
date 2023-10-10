@@ -1,6 +1,6 @@
 # Unofficial DeepL Translator API
 
-This repository contains a Flask application that utilizes the DeepL translation service to translate text from one language to another. The application uses Selenium and undetected_chromedriver library to automate the translation process.
+This repository contains a Flask application that utilizes the DeepL translation service to translate text from one language to another. The application uses requests library to automate the translation process.
 
 ## Usage
 
