@@ -1,9 +1,6 @@
 from flask import Flask, request, jsonify
 import requests as r
 
-input_lang = "tr"
-output_lang = "en"
-
 session = r.session()
 
 def translate(text, input_lang, output_lang):
