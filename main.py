@@ -57,6 +57,9 @@ def translate(text, input_lang, output_lang):
 
         return translate_response
     else:
+        if response.json()["message"] == "Too many requests":
+            return "Too many requests."
+            
         translated_text = response.json()["result"]["translations"][0]["beams"][0]["postprocessed_sentence"]
         return translated_text
 
