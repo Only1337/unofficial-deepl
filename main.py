@@ -57,9 +57,9 @@ def translate(text, input_lang, output_lang):
 
         return translate_response
     else:
-        if response.json()["message"] == "Too many requests":
+        if "message" in response.json() and response.json()["message"] == "Too many requests":
             return "Too many requests."
-            
+        
         translated_text = response.json()["result"]["translations"][0]["beams"][0]["postprocessed_sentence"]
         return translated_text
 
@@ -77,7 +77,10 @@ def translate_text():
     if not text.strip():
         return jsonify({'success': 'false', 'message': 'Text data cannot be empty'})
     
-    translated_data = translate(text, input_lang, output_lang)
+    try:
+        translated_data = translate(text, input_lang, output_lang)
+    except Exception as e:
+        return jsonify({'success': 'false', 'message': f'Error: {str(e)}'})
     
     return jsonify({'success': 'true', 'translated': {'text': translated_data}})
 
